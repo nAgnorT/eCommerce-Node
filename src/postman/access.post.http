@@ -2,6 +2,7 @@
 
 POST {{url_dev}}/shop/signup
 Content-Type: application/json
+x-api-key: 33adfe0e78cf7860c9615d48f116ef3bcc63b1bed6ae0ab10139cb15918ecba7e0700340c98b91ae194751cdad3fea48ea9b5face624d931cd0b2958c1f5696a
 
 {
   "name": "Shop Quyt",
