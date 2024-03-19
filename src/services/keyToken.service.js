@@ -1,6 +1,8 @@
 'use strict'
 
 const keytokenModel = require("../models/keytoken.model.js")
+const {ObjectId} =  require('bson')
+
 
 class KeyTokenService {
     static createKeyToken = async({userId, publicKey, privateKey, refreshToken}) => {
@@ -24,6 +26,20 @@ class KeyTokenService {
         } catch(error) {
             return error
         }
+    }
+
+    static findByUserId = async(userId) => {
+        const _id = new ObjectId(userId)
+        const findUser = await keytokenModel.findOne({user: _id}).lean()
+        console.log('findUser', findUser)
+        return findUser
+    }
+
+    static removeKeyById = async(id) => {
+        const removeKey = await keytokenModel.deleteOne({
+            _id: new ObjectId(id)
+        })
+        return removeKey
     }
 }
 
