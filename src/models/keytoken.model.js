@@ -23,7 +23,7 @@ var keyTokenSchema = new Schema({
         required: true,
 
    },
-   refreshTokenUsed:{
+   refreshTokensUsed:{
         type:Array,
         default: [],
    },
