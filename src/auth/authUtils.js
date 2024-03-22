@@ -112,7 +112,8 @@ const authenticationV2 = asyncHandler( async (req,res,next) => {
     }
 
 
-
+    const accessToken = req.headers[HEADER.AUTHORIZATION]
+    if(!accessToken) throw new AuthFailureError('Invalid request')
 
    //4,5
    try{
