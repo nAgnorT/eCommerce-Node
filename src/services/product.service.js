@@ -1,7 +1,7 @@
 'use strict'
 
 const { BadRequestError } = require('../core/error.response')
-const {product, electronic,clothing} = require('../models/shop.model')
+const {product, electronic,clothing} = require('../models/product.model')
 
 //define Factory class to create product
 class ProductFactory{
@@ -13,9 +13,9 @@ class ProductFactory{
     static async createProduct(type, payload) {
         switch(type){
             case 'Electronic':
-                return new Electronic(payload)
+                return new Electronic(payload).createProduct()
             case 'Clothing':
-                return new Clothing(payload)
+                return new Clothing(payload).createProduct()
             default:
                 throw new BadRequestError(`Invalid Product Types ${type}`)
         }
